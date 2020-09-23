@@ -1,0 +1,113 @@
+nav {
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.nav {
+  &-link {
+    position: relative;
+    display: block;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8em 1.8em;
+    letter-spacing: 1px;
+
+    &:hover {
+      color: #bbe1fa;
+    }
+  }
+
+  &-item {
+    position: relative;
+
+    &:hover {
+      border-bottom-color: #bbe1fa;
+    }
+  }
+}
+
+.nav > li {
+  float: left;
+  border-bottom: 4px #aaa solid;
+  margin-right: 1px;
+}
+
+.nav li a:first-child:nth-last-child(2):before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+  top: 50% ;
+  right: 5px;
+}
+
+.nav ul {
+  position: absolute;
+  white-space: nowrap;
+  z-index: 1;
+  left: -99999em;
+}
+
+.nav > .categories:hover > ul {
+  left: auto;
+  padding-top: 5px;
+  min-width: 100%;
+}
+
+.nav form {
+  position: absolute;
+  top: 54px;
+  white-space: nowrap;
+  z-index: 1;
+  left: -99999em;
+  width: 300px;
+}
+
+.nav > .cabinet:hover > form {
+  left: auto;
+  padding-top: 5px;
+  min-width: 100%;
+}
+
+.nav > li li ul {
+  border-left: 1px solid #fff;
+}
+
+.nav > li li:hover > ul {
+  left: 100%;
+  top: 1px;
+}
+
+.nav > li > a:first-child:nth-last-child(2):before {
+  border-top-color: #fff;
+}
+
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent;
+  border-bottom-color: #fff;
+  margin-top: -5px;
+}
+
+.nav li li > a:first-child:nth-last-child(2):before {
+  border-left-color: #aaa;
+  margin-top: -5px;
+}
+
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent;
+  border-right-color: #aaa;
+  right: 10px;
+}
+
+.link {
+  &:hover {
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dashed #0056be;
+  }
+}
