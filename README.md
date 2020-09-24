@@ -11,6 +11,7 @@ The project was created with:
 - SASS
 - BEM
 - Bootstrap
+- PHP
 
 ## Description
 
@@ -18,3 +19,4 @@ The project was created with:
  - sublist of computers category;
  - CSS animation;
  - form for input;
+ - load information from php array;

@@ -20,27 +20,176 @@
       crossorigin="anonymous"
     >
 
-    <link rel="stylesheet" href="./styles/main.scss">
+    <style>
+      body {
+        background: #eee;
+      }
 
+      .header {
+        display: flex;
+        justify-content: center;
+        background-color: black;
+        height: 100%;
+        width: 100%;
+      }
+
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-link {
+        position: relative;
+        display: block;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.8em 1.8em;
+        letter-spacing: 1px;
+        width: 150px;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        transition: color 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        color: #bbe1fa;
+      }
+
+      .nav-item {
+        position: relative;
+      }
+
+      .nav-item:hover {
+        border-bottom-color: #bbe1fa;
+      }
+
+      .nav > li {
+        float: left;
+        border-bottom: 4px #aaa solid;
+        margin-right: 1px;
+      }
+
+      .nav li a:first-child:nth-last-child(2):before {
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border: 5px solid transparent;
+        top: 50% ;
+        right: 5px;
+      }
+
+      .nav ul {
+        position: absolute;
+        white-space: nowrap;
+        z-index: -1;
+        top: -250px;
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+      }
+
+      .nav > .categories:hover > ul {
+        left: auto;
+        padding-top: 5px;
+        min-width: 100%;
+        opacity: 1;
+        transform: translateY(300px);
+      }
+
+      .nav form {
+        position: absolute;
+        top: -246px;
+        white-space: nowrap;
+        z-index: -1;
+        left: 0;
+        width: 300px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out,
+          transform 0.5s ease-in-out;
+      }
+
+      .cabinet:hover > form {
+        left: auto;
+        padding-top: 5px;
+        min-width: 100%;
+        opacity: 1;
+        transform: translateY(300px);
+      }
+
+      .nav > li li ul {
+        border-left: 1px solid #fff;
+      }
+
+      .nav > li li:hover > ul {
+        left: 100%;
+        top: 1px;
+        opacity: 1;
+      }
+
+      .nav > li > a:first-child:nth-last-child(2):before {
+        border-top-color: #fff;
+      }
+
+      .nav > li:hover > a:first-child:nth-last-child(2):before {
+        border: 5px solid transparent;
+        border-bottom-color: #fff;
+        margin-top: -5px;
+      }
+
+      .nav li li > a:first-child:nth-last-child(2):before {
+        border-left-color: #aaa;
+        margin-top: -5px;
+      }
+
+      .nav li li:hover > a:first-child:nth-last-child(2):before {
+        border: 5px solid transparent;
+        border-right-color: #aaa;
+        right: 10px;
+      }
+
+      .link:hover {
+        text-decoration: none;
+        font-weight: 500;
+        border-bottom: 2px dashed #0056be;
+      }
+    </style>
     <title>Header</title>
   </head>
 
   <body>
+
+    <?php
+      $categories = [
+				'Мобільні телефони і гаджети',
+				'Ноутбуки і Аксесуари',
+				'Комп`ютери',
+				'Розумні годинники'
+      ];
+
+      $sub_categories = [
+        'Ноутбуки',
+        'Планшети',
+        'Аксесуари до ноутбуків і ПК',
+        'Комплектуючі',
+        'Комп`ютери',
+        'Книги',
+        'Відеокарти'
+      ];
+    ?>
+
     <header class="header">
       <div class="container">
         <nav>
           <ul class="nav nav-pills">
             <li class="nav-item cabinet">
-              <a
-                href="#"
-                class="nav-link"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Кабінет
-              </a>
+              <a href="#" class="nav-link cabinet__link">Кабінет</a>
 
               <form class="rounded border bg-light p-3">
 
@@ -94,25 +243,26 @@
             </li>
 
             <li class="nav-item categories">
-              <a
-                href="#"
-                class="nav-link"
-                data-toggle="dropdown"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Категорії
-              </a>
+              <a href="#" class="nav-link">Категорії</a>
 
-              <ul class="">
+              <ul>
                 <li class="nav-item">
                   <a
                     href="#"
                     class="nav-link"
-                    title="Мобільні телефони і гаджети"
+                    title="<?php echo ''.$categories[0].'' ; ?>"
                   >
-                    Мобільні телефони і гаджети
+                    <?php echo ''.$categories[0].'' ; ?>
+                </a>
+                </li>
+
+                <li class="nav-item">
+                  <a
+                    href="#"
+                    class="nav-link"
+                    title="<?php echo ''.$categories[1].'' ; ?>"
+                  >
+                    <?php echo ''.$categories[1].'' ; ?>
                   </a>
                 </li>
 
@@ -120,23 +270,9 @@
                   <a
                     href="#"
                     class="nav-link"
-                    title="Ноутбуки і Аксесуари"
+                    title="<?php echo ''.$categories[2].'' ; ?>"
                   >
-                    Ноутбуки і Аксесуари
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a
-                    href="#"
-                    class="nav-link"
-                    data-toggle="dropdown"
-                    role="button"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                    title="Комп`ютери"
-                  >
-                    Комп`ютери
+                    <?php echo ''.$categories[2].'' ; ?>
                   </a>
 
                   <ul>
@@ -144,9 +280,9 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Ноутбуки"
+                        title="<?php echo ''.$sub_categories[0].'' ; ?>"
                       >
-                        Ноутбуки
+                        <?php echo ''.$sub_categories[0].'' ; ?>
                       </a>
                     </li>
 
@@ -154,9 +290,9 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Планшети"
+                        title="<?php echo ''.$sub_categories[1].'' ; ?>"
                       >
-                        Планшети
+                        <?php echo ''.$sub_categories[1].'' ; ?>
                       </a>
                     </li>
 
@@ -164,9 +300,9 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Аксесуари до ноутбуків і ПК"
+                        title="<?php echo ''.$sub_categories[2].'' ; ?>"
                       >
-                        Аксесуари до ноутбуків і ПК
+                        <?php echo ''.$sub_categories[2].'' ; ?>
                       </a>
                     </li>
 
@@ -174,9 +310,9 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Комплектуючі"
+                        title="<?php echo ''.$sub_categories[3].'' ; ?>"
                       >
-                        Комплектуючі
+                        <?php echo ''.$sub_categories[3].'' ; ?>
                       </a>
                     </li>
 
@@ -184,9 +320,9 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Комп`ютери"
+                        title="<?php echo ''.$sub_categories[4].'' ; ?>"
                       >
-                        Комп`ютери
+                        <?php echo ''.$sub_categories[4].'' ; ?>
                       </a>
                     </li>
 
@@ -194,9 +330,19 @@
                       <a
                         href="#"
                         class="nav-link"
-                        title="Відеокарти"
+                        title="<?php echo ''.$sub_categories[5].'' ; ?>"
                       >
-                        Відеокарти
+                        <?php echo ''.$sub_categories[5].'' ; ?>
+                      </a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a
+                        href="#"
+                        class="nav-link"
+                        title="<?php echo ''.$sub_categories[6].'' ; ?>"
+                      >
+                        <?php echo ''.$sub_categories[6].'' ; ?>
                       </a>
                     </li>
                   </ul>
@@ -206,9 +352,9 @@
                   <a
                     href="#"
                     class="nav-link"
-                    title="Розумні годинники"
+                    title="<?php echo ''.$categories[3].'' ; ?>"
                   >
-                    Розумні годинники
+                    <?php echo ''.$categories[3].'' ; ?>
                   </a>
                 </li>
               </ul>
