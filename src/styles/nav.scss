@@ -1,33 +1,37 @@
-nav {
-  & ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.nav {
-  &-link {
-    position: relative;
-    display: block;
-    background: #111;
-    color: #fff;
-    text-decoration: none;
-    padding: 0.8em 1.8em;
-    letter-spacing: 1px;
+.nav-link {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8em 1.8em;
+  letter-spacing: 1px;
+  width: 150px;
 
-    &:hover {
-      color: #bbe1fa;
-    }
-  }
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 
-  &-item {
-    position: relative;
+  transition: color 0.3s ease-in-out;
+}
 
-    &:hover {
-      border-bottom-color: #bbe1fa;
-    }
-  }
+.nav-link:hover {
+  color: #bbe1fa;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item:hover {
+  border-bottom-color: #bbe1fa;
 }
 
 .nav > li {
@@ -49,38 +53,50 @@ nav {
 .nav ul {
   position: absolute;
   white-space: nowrap;
-  z-index: 1;
-  left: -99999em;
+  z-index: -1;
+  top: -251px;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
 }
 
 .nav > .categories:hover > ul {
   left: auto;
   padding-top: 5px;
   min-width: 100%;
+  opacity: 1;
+  transform: translateY(300px);
 }
 
 .nav form {
   position: absolute;
-  top: 54px;
+  top: -246px;
   white-space: nowrap;
-  z-index: 1;
-  left: -99999em;
+  z-index: -1;
+  left: 0;
   width: 300px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
 }
 
-.nav > .cabinet:hover > form {
+.cabinet:hover > form {
   left: auto;
   padding-top: 5px;
   min-width: 100%;
+  opacity: 1;
+  transform: translateY(300px);
 }
 
-.nav > li li ul {
-  border-left: 1px solid #fff;
+.nav > li li {
+  border-right: 1px solid gray;
 }
 
 .nav > li li:hover > ul {
   left: 100%;
   top: 1px;
+  opacity: 1;
 }
 
 .nav > li > a:first-child:nth-last-child(2):before {
@@ -104,10 +120,8 @@ nav {
   right: 10px;
 }
 
-.link {
-  &:hover {
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 2px dashed #0056be;
-  }
+.link:hover {
+  text-decoration: none;
+  font-weight: 400;
+  border-bottom: 1px dashed #0056be;
 }
