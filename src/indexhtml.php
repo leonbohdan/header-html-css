@@ -40,6 +40,7 @@
       }
 
       .nav-link {
+        box-sizing: border-box;
         position: relative;
         display: block;
         background: #000;
@@ -88,7 +89,7 @@
         position: absolute;
         white-space: nowrap;
         z-index: -1;
-        top: -250px;
+        top: -251px;
         left: 0;
         opacity: 0;
         transition: opacity 0.5s ease-in-out,
@@ -123,8 +124,8 @@
         transform: translateY(300px);
       }
 
-      .nav > li li ul {
-        border-left: 1px solid #fff;
+      .nav > li li {
+        border-right: 1px solid gray;
       }
 
       .nav > li li:hover > ul {
@@ -156,7 +157,7 @@
 
       .link:hover {
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 400;
         border-bottom: 2px dashed #0056be;
       }
     </style>
@@ -187,15 +188,14 @@
     <header class="header">
       <div class="container">
         <nav>
-          <ul class="nav nav-pills">
+          <ul class="nav">
             <li class="nav-item cabinet">
               <a href="#" class="nav-link cabinet__link">Кабінет</a>
 
-              <form class="rounded border bg-light p-3">
-
+              <form class="container rounded border bg-light p-3">
                 <div class="d-flex mb-3">
                   <div>
-                    <a class="link active" href="#">First Name</a>
+                    <a class="link" href="#">First Name</a>
                   </div>
 
                   <div>
@@ -204,37 +204,52 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-4 col-form-label ">Label</label>
+                  <label
+                    for="Label"
+                    class="col-sm-4 col-form-label"
+                  >
+                    Label
+                  </label>
                   <div class="col-sm-8">
                     <input
                       type="text"
                       class="form-control font-weight-bold text-dark"
-                      id="inputEmail3"
+                      id="Label"
                       placeholder="First Name"
                     >
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-4 col-form-label">Placeholder</label>
+                  <label
+                    for="Placeholder"
+                    class="col-sm-4 col-form-label"
+                  >
+                    Placeholder
+                  </label>
                   <div class="col-sm-8">
                     <input
                       type="text"
                       class="form-control"
-                      id="inputPassword3"
+                      id="Placeholder"
                       placeholder=""
                     >
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <div class="col-sm-4">Required</div>
+                  <label
+                    for="Required"
+                    class="col-sm-4 form-check-label"
+                  >
+                    Required
+                  </label>
                   <div class="col-sm-8">
                     <div class="form-check">
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        id="gridCheck1"
+                        id="Required"
                       >
                     </div>
                   </div>
@@ -276,75 +291,19 @@
                   </a>
 
                   <ul>
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[0].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[0].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[1].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[1].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[2].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[2].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[3].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[3].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[4].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[4].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[5].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[5].'' ; ?>
-                      </a>
-                    </li>
-
-                    <li class="nav-item">
-                      <a
-                        href="#"
-                        class="nav-link"
-                        title="<?php echo ''.$sub_categories[6].'' ; ?>"
-                      >
-                        <?php echo ''.$sub_categories[6].'' ; ?>
-                      </a>
-                    </li>
+                    <?php
+                      foreach ($sub_categories as $sub_category) {
+                        echo '<li class="nav-item">
+                          <a
+                            href="#"
+                            class="nav-link"
+                            title="'.$sub_category.'"
+                          >
+                            '.$sub_category.'
+                          </a>
+                        </li>';
+                      }
+                    ?>
                   </ul>
                 </li>
 

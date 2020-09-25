@@ -5,6 +5,7 @@ nav ul {
 }
 
 .nav-link {
+  box-sizing: border-box;
   position: relative;
   display: block;
   background: #000;
@@ -53,7 +54,7 @@ nav ul {
   position: absolute;
   white-space: nowrap;
   z-index: -1;
-  top: -250px;
+  top: -251px;
   left: 0;
   opacity: 0;
   transition: opacity 0.5s ease-in-out,
@@ -88,8 +89,8 @@ nav ul {
   transform: translateY(300px);
 }
 
-.nav > li li ul {
-  border-left: 1px solid #fff;
+.nav > li li {
+  border-right: 1px solid gray;
 }
 
 .nav > li li:hover > ul {
@@ -121,6 +122,6 @@ nav ul {
 
 .link:hover {
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   border-bottom: 2px dashed #0056be;
 }
