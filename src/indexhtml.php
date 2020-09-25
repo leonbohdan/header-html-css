@@ -158,7 +158,7 @@
       .link:hover {
         text-decoration: none;
         font-weight: 400;
-        border-bottom: 2px dashed #0056be;
+        border-bottom: 1px dashed #0056be;
       }
     </style>
     <title>Header</title>
